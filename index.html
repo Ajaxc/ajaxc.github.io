@@ -7,9 +7,11 @@
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.bootcss.com/layer/3.0.1/layer.min.js"></script>
     <script>
         $(function () {
             $("#btnExec").click(function () {
+                var ii = layer.load();
                 var data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
                 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
@@ -43,6 +45,7 @@
                 for (var i = 0; i < newarr.length; i++) {
                     totalRes += newarr[i] + "\r\n";
                 }
+                layer.close(ii);
                 $("#txtResult").val(totalRes);
             });
 
