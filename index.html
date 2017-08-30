@@ -9,27 +9,24 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
         $(function () {
-            $("#btnExec").click(function () {
+            function Exec() {
                 var data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
                 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
                 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',
                 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-
                 var num = $("#txtNum").val() || 50000,
-                    len = $("#txtLength").val() || 10,
-                    totalRes = "";
+                len = $("#txtLength").val() || 10,
+                totalRes = "";
                 var charText = $("#txtChar").val(),
                     charList = [],
                     arr = [],
                     newarr = [];
-
                 if (charText) {
                     for (var i = 0; i < charText.length; i++) {
                         charList.push(charText.charAt(i));
                     }
                     data = charList;
                 }
-
                 for (var j = 0; j < num; j++) {
                     var result = "";
                     for (var i = 0; i < len; i++) {
@@ -39,11 +36,19 @@
                     arr.push(result);
                 }
                 newarr = arr.unique();
+
                 $("#showLable").html("生成成功,总条数: " + newarr.length + " 条,其中已排除重复数条数: " + (arr.length - newarr.length) + " 条.");
                 for (var i = 0; i < newarr.length; i++) {
                     totalRes += newarr[i] + "\r\n";
                 }
                 $("#txtResult").val(totalRes);
+            }
+            $("#btnExec").click(function () {
+                setTimeout(function () {
+                    Exec();
+                }, 0);
+                $("#showLable").html("生成中,请稍后......");
+                $("#txtResult").val("");
             });
 
             Array.prototype.unique = function () {
