@@ -8,7 +8,10 @@
     <script src="https://cdn.bootcss.com/jquery/1.10.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
+        var currentDate = new Date();
         $(function () {
+            $("#y").html(currentDate.getFullYear())
+            $("#m").html(currentDate.getFullYear()+'-'+currentDate.getMonth() + 1+'-'+currentDate.getDate())
             function Exec() {
                 $("#showLable").html();
                 var data = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
@@ -72,7 +75,7 @@
             <p>
                 随机数组合生成 &nbsp;v1.0
             </p>
-            <footer>Copyright ©  2017 by Ajaxc All Rights Reserved.<cite title="Source Title">2017-01-16</cite></footer>
+            <footer>Copyright ©  <span id='y'>2017</span> by Ajaxc All Rights Reserved.<cite title="Source Title" id='m'>2017-01-16</cite></footer>
         </blockquote>
         <form action="">
             <div class="form-group">
